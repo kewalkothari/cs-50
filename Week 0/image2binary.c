@@ -3,8 +3,9 @@
 #define IMAGE_FILE_LOCATION         "hello-world.png"
 #define BINARY_TEXT_FILE_LOCATION   "hello-world-binary.txt"
 
-int main() {
-    int byteValue, byteIndex;
+int main() 
+{
+    int byteValue, bitIndex;
     FILE *imageFile;
     FILE *textFile;
 
@@ -18,9 +19,9 @@ int main() {
         {
             byteValue = fgetc(imageFile);
 
-            for (byteIndex = 0; byteIndex < 8; byteIndex++) 
+            for (bitIndex = 0; bitIndex < 8; bitIndex++) 
             {
-                if (byteValue&(1<<(7-byteIndex))) 
+                if (byteValue&(1<<(7-bitIndex))) 
                 {
                     fputc('1', textFile);
                 }
@@ -40,5 +41,6 @@ int main() {
         printf("File failed to load\n");
         fclose(imageFile);
     }
+
     return 0;
 }
